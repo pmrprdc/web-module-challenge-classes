@@ -59,7 +59,7 @@ class Person {
     this.stomach = [];
   }
   toString(){
-    return `${this.name}, ${this.age}`
+    return `${this.name}, ${this.age} `
   }
   
 }
@@ -79,6 +79,11 @@ class Person {
 */
 
 class Car {
+  constructor(model, milesPerGallon){
+    this.tank = 0;
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+  }
   
 }
 
