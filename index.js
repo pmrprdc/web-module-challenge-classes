@@ -8,6 +8,8 @@
         + If a plane lands, its `isFlying` property gets set to false.
 */
 
+const { template } = require("@babel/core");
+
 // EXAMPLE SOLUTION CODE:
 class Airplane {
   constructor(name) {
@@ -83,8 +85,23 @@ class Car {
     this.tank = 0;
     this.model = model;
     this.milesPerGallon = milesPerGallon;
+    this.odometer = 0;
   }
-  
+  fill(gallons){
+    this.tank += gallons;
+  }
+  drive(distance){
+    const maxMilage = this.tank * this.milesPerGallon;
+    if ( maxMilage < distance) {
+      this.odometer+= maxMilage;
+      this.tank = 0;
+      return `I ran out of fuel at ${maxMilage}miles!`
+    }
+    this.odometer += distance;
+    const totalgallons = (distance / this.milesPerGallon)
+    this.tank -= totalgallons;
+    
+  }
 }
 
 /*
